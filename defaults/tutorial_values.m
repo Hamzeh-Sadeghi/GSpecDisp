@@ -11,7 +11,7 @@ params.lon1= 5;
 params.lat2= 70;
 params.lon2= 25;
 
-params.map='/home/Hamzeh/matlab-tr/phv_measure/GSpecDisp1.4/Projects/mat_border.mat';
+params.map='./Projects/mat_border.mat';
 
 params.data= './Projects/SNSN_north/data/ZZ';
 params.save= './Projects/SNSN_north/Phase_vel/ZZ';
