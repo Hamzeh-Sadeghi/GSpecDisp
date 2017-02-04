@@ -10,6 +10,8 @@ f1= 1/T2; f2=1/T1;
 if iscolumn(cc)==0
     cc=cc';
     col='n';
+else
+    col='y';
 end
 %----------------------------------
 % preparation
