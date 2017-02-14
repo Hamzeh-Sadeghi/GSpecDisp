@@ -17,7 +17,7 @@ function [ output, c_non ] = disp_select10( c_non, z_non, ref_disp, dz, mp, pl, 
 %           amp:    amplitude of maximum of real part between zero-crossings, as a function of period
 %
 %   17 jun 2016
-% last modified: 23 jan 2017
+% last modified: 14 Feb 2017
 % Hamzeh Sadeghisorkhani
 
 global params
@@ -253,7 +253,11 @@ if pl=='y'
     
 end
 
-output= [per', C'];
+if exist('per','var')==1
+    output= [per', C'];    
+else
+    output= [];
+end
 
 
 end

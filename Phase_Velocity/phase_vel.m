@@ -5,6 +5,7 @@ function phase_vel()
 %
 % June 2016
 % changed: Aug 2016
+% last modification: 14 Feb 2017
 % Hamzeh Sadeghisorkhani
 
 %% Parameters
@@ -373,9 +374,14 @@ function ploting(sta, D, CC)
     if ~isempty(ref_disp)
         plot(axes1,ref_disp(:,1), ref_disp(:,2), 'r-.');
     end
-    if strcmp(params.automatic,'yes') && strcmp(params.ref, 'yes')
-        plot(axes1,sxy_data(:,1),sxy_data(:,2) , 'ro'); 
+    if strcmp(params.automatic,'yes') && strcmp(params.ref, 'yes')        
+        if isempty(sxy_data)==0            
+            plot(axes1,sxy_data(:,1),sxy_data(:,2) , 'ro'); 
+        else
+            set(text1, 'String', 'Maybe the inter-station distance is too short !!!');
+        end
     end
+    
     set(axes1, 'Xlim',[params.T1 params.T2],'ylim', [params.vmin params.vmax])
     axes1.XTick= [.1 .2 .3 .4 .5 .6 .7 .8 .9 1 2 3 4 5 6 7 8 9 10 15 20 25 30 35 40 50 60 80 100 120]; 
     axes1.YTick= [1 1.2 1.5 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 4.2 4.4 4.6 4.8 5 5.5 6]; 
@@ -1003,31 +1009,5 @@ function [ref_disp, zz, icons]= rddata(d, reference, format, delimval)
 
 end
 
-
-%%
-% Copyright (c) 2016, Hamzeh Sadeghisorkhani
-% All rights reserved.
-%
-% 
-% 1) TERMS OF USE
-%   If you use GSpecDisp or any function(s) of it, you need to acknowledge 
-%   GSpecDisp by citing the following article:
-%   Sadeghisorkhani, H., Gudmundsson, O.. GSpecDisp: a Matlab GUI 
-%   package for phase-velocity dispersion measurements from ambient-noise 
-%   correlations, Computers and Geosciences, ??.   
-%   
-% 
-% 2) LICENSE:
-%   This program is part of GSpecDisp
-%   GSpecDisp is free software: you can redistribute it and/or modify
-%   it under the terms of the GNU General Public License as published by
-%   the Free Software Foundation, either version 3 of the License, or
-%   (at your option) any later version.
-%      GSpecDisp is distributed in the hope that it will be useful,
-%   but WITHOUT ANY WARRANTY; without even the implied warranty of
-%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-%   GNU General Public License for more details.
-%       You should have received a copy of the GNU General Public License
-%   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
