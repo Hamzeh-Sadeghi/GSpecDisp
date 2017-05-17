@@ -345,7 +345,7 @@ end
 %================================
 function coherency()
         
-    x= linspace(0,dist_max,10000);
+    x= linspace(0,dist_max,1000);
     if ~isempty(C_smth)
         vel_tmp= (C_smth);
     else

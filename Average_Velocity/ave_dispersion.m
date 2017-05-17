@@ -65,7 +65,7 @@ dist_sorted= RL2(:,length(F)+1);
 %%
 %---------------- calculating the average velocity based on nn norm
 C= zeros(1,length(F));
-x= 0:1:dist_max;
+x= linspace(0,dist_max,1000);
 for ii=1:length(F)
     count= 0;
     res= zeros(1,length(c));
