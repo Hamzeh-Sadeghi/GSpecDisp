@@ -5,7 +5,7 @@ function phase_vel()
 %
 % June 2016
 % changed: Aug 2016
-% last modification: 4 May 2017
+% last modification: 4 Sept 2017
 % Hamzeh Sadeghisorkhani
 
 %% Parameters
@@ -14,6 +14,11 @@ global params
 T= params.measureperiods;
 comp= params.component;
 
+if strcmp(params.scale, 'Log')==1
+    scale_val= 1;
+elseif strcmp(params.scale, 'Linear')==1
+    scale_val= 0;
+end
 
 [ref_disp_R, ~, ~]= rddata(params.Rayleigh_ave, params.ref, params.format, params.delim);
 [ref_disp_L, zz, icons]= rddata(params.Love_ave, params.ref, params.format, params.delim); 
@@ -114,7 +119,7 @@ text2= uicontrol('Style','text','HorizontalAlignment','left',...
 % logarithmic scale checkbox
 uicontrol(f,'Style','checkbox','BackgroundColor', panel_color,...
                 'String','Log Axis','units','normalized','Tag','logcb',...
-                'Value',1,'Position',[.82 .35 .1 .03],'callback',@logscale);
+                'Value',scale_val,'Position',[.82 .35 .1 .03],'callback',@logscale);
 
 % print icon
 h.pr= uicontrol(pan1,'Style','pushbutton', 'String','',...
@@ -363,30 +368,36 @@ function ploting(sta, D, CC)
     
     if isempty(xy_data)== 0
         if strcmp(params.colorful,'yes')==1
-            plot(axes1,1./z_non,c_non,'.')
+            plot(axes1,1./z_non,c_non,'.','MarkerSize',7)
         else
-            plot(axes1,xy_data(:,1),xy_data(:,2),'b.');
+            plot(axes1,xy_data(:,1),xy_data(:,2),'b.','MarkerSize',7);
         end
     
     
     hold(axes1,'on')
-    title(axes1,[titlename,' - distance: ', sprintf('%4.2f',D), ' km'],'Interpreter','none');xlabel(axes1,'Periods');ylabel(axes1,'Velocity (km/s)')
+    title(axes1,[titlename,' - distance: ', sprintf('%4.2f',D), ' km'],'Interpreter','none');xlabel(axes1,'Period (sec)');ylabel(axes1,'Velocity (km/s)')
     if ~isempty(ref_disp)
         plot(axes1,ref_disp(:,1), ref_disp(:,2), 'r-.');
     end
     if strcmp(params.automatic,'yes') && strcmp(params.ref, 'yes')        
         if isempty(sxy_data)==0            
-            plot(axes1,sxy_data(:,1),sxy_data(:,2) , 'ro'); 
+            plot(axes1,sxy_data(:,1),sxy_data(:,2) , 'ro','MarkerSize',8); 
         else
             set(text1, 'String', 'Maybe the inter-station distance is too short !!!');
         end
+    end
+    
+    if scale_val==1
+        xscale= 'Log';
+    elseif scale_val==0
+        xscale= 'Linear';
     end
     
     set(axes1, 'Xlim',[params.T1 params.T2],'ylim', [params.vmin params.vmax])
     axes1.XTick= [.1 .2 .3 .4 .5 .6 .7 .8 .9 1 2 3 4 5 6 7 8 9 10 15 20 25 30 35 40 50 60 80 100 120]; 
     axes1.YTick= [1 1.2 1.5 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 4.2 4.4 4.6 4.8 5 5.5 6]; 
     axes1.XGrid='on'; axes1.YGrid='on'; 
-    set(axes1,'xScale',params.scale);
+    set(axes1,'xScale',xscale);
     h_select=plot(axes1,0,0);
     
 
@@ -398,7 +409,7 @@ function ploting(sta, D, CC)
     plot(axes3,1./freq,real(CC(1:length(CC))) );
 %     plot(axes3,1./freq,imag(CC(1:length(CC))), 'r' );
 %     plot(axes3,1./freq,abs(CC(1:length(CC))), 'g' );
-    set(axes3,'xScale',params.scale);
+    set(axes3,'box','on','xScale',xscale);
     set(axes3,'XTick',[.1 .2 .3 .4 .5 1 2 3 4 5 6 7 8 9 10 15 20 25 30 35 40 50 60 80 100 120], 'XTickLabel',[]);
     xlim(axes3,[params.T1 params.T2]); 
     axes3.XGrid='on'; axes3.YGrid='on'; 
@@ -695,11 +706,13 @@ end
 %================================
 function logscale(h, ~)
     if (get(h,'Value') == get(h,'Max'))
+        scale_val= 1;
         display('Logarithmic axis chosen');
         set(text1, 'String', 'Logarithmic axis chosen');
         set(axes1,'xScale','log');
         set(axes3,'xScale','log');
     else
+        scale_val= 0;
         display('Linear axis chosen');
         set(text1, 'String', 'Linear axis chosen');
         set(axes1,'xScale','linear');

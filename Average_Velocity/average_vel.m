@@ -335,7 +335,7 @@ function ploting1(len)
     set(axes1,'xscal','log', 'XTick', [.1 .2 .3 .4 .5 1 2 3 4 5 6 7 8 9 10 15 20 25 30 35 40 50 60 80 100 120]);
     set(axes1, 'box','on', 'ylim', [params.Cmin params.Cmax], 'xlim', [T(1) T(end)])
     title(axes1, ['Average Phase Velocity (', num2str(len), ' station pairs)'])
-    xlabel(axes1,'Periods (sec)')
+    xlabel(axes1,'Period (sec)')
     ylabel(axes1,'Phase Velocity (km/sec)')    
     
         

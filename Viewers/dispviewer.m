@@ -313,7 +313,7 @@ function ploting()
     end
     set(axes1,'xscal','log', 'XTick', [.1 .2 .3 .4 .5 1 2 3 4 5 6 7 8 9 10 15 20 25 30 35 40 50 60 80 100 120]);
     set(axes1, 'box','on', 'ylim', [Cmin Cmax], 'xlim', [Tmin Tmax])
-    xlabel(axes1,'Periods (sec)')
+    xlabel(axes1,'Period (sec)')
     ylabel(axes1,'Phase Velocity (km/sec)')  
     if isempty(get(h.title,'string'))
         title(axes1, ['Phase Velocity Dispersion Curve'])
