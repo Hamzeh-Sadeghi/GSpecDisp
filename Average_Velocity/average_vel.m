@@ -49,7 +49,7 @@ uipanel(avfig,'visible','on','Position',[.81 .45 .185 .01],...
     'BackgroundColor', fig_color);
 
 % Curve fitting axes
-axes3= axes('position',[.05 .11 .72 .36]);
+axes3= axes('position',[.05 .12 .72 .36]);
 hold(axes3,'on')
 
 % Text message to user
