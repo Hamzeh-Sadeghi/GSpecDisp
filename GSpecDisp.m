@@ -5,10 +5,10 @@
 % 1) TERMS OF USE
 %   If you use GSpecDisp or any function(s) of it, you need to acknowledge 
 %   GSpecDisp by citing the following article:
-%   Sadeghisorkhani, H., Gudmundsson, O.. GSpecDisp: a Matlab GUI 
-%   package for phase-velocity dispersion measurements from ambient-noise 
-%   correlations, Computers and Geosciences, ??.   
-%   
+% 
+%    Sadeghisorkhani, H., Gudmundsson, O., Tryggvason, A., 2017. GSpecDisp: a 
+%    Matlab GUI package for phase-velocity dispersion measurements from 
+%    ambient-noise correlations, Computers and Geosciences, under review.   
 % 
 % 2) LICENSE:
 %   This program is part of GSpecDisp
