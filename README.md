@@ -11,11 +11,11 @@ Manual and tutorial of GSpecDisp can be found in the folder called Doc (path is:
 # Citation
 If you use this code for your work, please cite one of the following articles:
 
-1- Sadeghisorkhani, H., Gudmundsson, O., Tryggvason, A., 2018. GSpecDisp: a Matlab GUI package for phase-velocity dispersion measurements from ambient-noise correlations, Computers and Geosciences, 110, 41-53, doi:10.1016/J.CAGEO.2017.09.006. [Link] (https://www.sciencedirect.com/science/article/pii/S009830041730119X)
+1- Sadeghisorkhani, H., Gudmundsson, O., Tryggvason, A., 2018. GSpecDisp: a Matlab GUI package for phase-velocity dispersion measurements from ambient-noise correlations, Computers and Geosciences, 110, 41-53, doi:10.1016/J.CAGEO.2017.09.006. \[[Link] (https://www.sciencedirect.com/science/article/pii/S009830041730119X)\]
 
-2- Sadeghisorkhani, H., Gudmundsson, Ó., Roberts, R., & Tryggvason, A., 2017. Velocity-measurement bias of the ambient noise method due to source directivity: a case study for the Swedish National Seismic Network, Geophysical Journal International, 209(3), 1648–1659, doi:10.1093/gji/ggx115. [Link] (https://academic.oup.com/gji/article/209/3/1648/3077204?searchresult=1)
+2- Sadeghisorkhani, H., Gudmundsson, Ó., Roberts, R., & Tryggvason, A., 2017. Velocity-measurement bias of the ambient noise method due to source directivity: a case study for the Swedish National Seismic Network, Geophysical Journal International, 209(3), 1648–1659, doi:10.1093/gji/ggx115. \[[Link] (https://academic.oup.com/gji/article/209/3/1648/3077204?searchresult=1)\]
 
-3- Sadeghisorkhani, H., Gudmundsson, O., Roberts, R., Tryggvason, A., 2016. Mapping the source distribution of microseisms using noise covariogram envelopes. Geophysical Journal International, 205(3), 1473-1491, doi:10.1093/gji/ggw092. [Link] (https://academic.oup.com/gji/article/205/3/1473/654560?searchresult=1)
+3- Sadeghisorkhani, H., Gudmundsson, O., Roberts, R., Tryggvason, A., 2016. Mapping the source distribution of microseisms using noise covariogram envelopes. Geophysical Journal International, 205(3), 1473-1491, doi:10.1093/gji/ggw092. \[[Link] (https://academic.oup.com/gji/article/205/3/1473/654560?searchresult=1)\]
 
 
 # Installation
